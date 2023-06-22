@@ -12,7 +12,10 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.11",
-        "spatie/laravel-permission": "^5.10"
+        "rappasoft/laravel-livewire-tables": "^2.14",
+        "spatie/laravel-permission": "^5.10",
+        "wire-elements/modal": "^1.0",
+        "wireui/wireui": "^1.17"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
