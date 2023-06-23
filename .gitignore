@@ -3,7 +3,7 @@
 # fix souce: https://onebite.dev/laravel-vite-manifest-not-found
 !/public/build
 /public/hot
-/public/storage
+!/public/storage
 /storage/*.key
 /vendor
 .env
