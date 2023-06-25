@@ -22,7 +22,7 @@
                 <div class="flex lg:flex-1">
                     <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">Emina</span>
-                        <img class="h-14 w-auto" src="{{ asset('/storage/images/logo.svg') }}"
+                        <img class="h-14 w-auto" src="{{ Storage::disk('s3')->url('logo.svg') }}"
                             alt="Emina">
                     </a>
                 </div>
