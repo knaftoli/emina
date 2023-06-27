@@ -113,7 +113,6 @@
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
         </button>
-        <div class="flex-1 text-sm font-semibold leading-6 text-gray-900">Dashboard</div>
         <a href="{{ route('profile.show') }}">
             <span class="sr-only">Your profile</span>
             <x-wui-avatar xs />

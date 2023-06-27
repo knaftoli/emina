@@ -60,7 +60,7 @@
         </div>
 
         <!-- Email -->
-        <div class="col-span-6 sm:col-span-4">
+        {{-- <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />
             <x-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
@@ -80,7 +80,7 @@
                     </p>
                 @endif
             @endif
-        </div>
+        </div> --}}
     </x-slot>
 
     <x-slot name="actions">
