@@ -36,6 +36,11 @@
                                 <div class="text-xs font-semibold leading-6 text-gray-400">Admin Settings</div>
                                 <ul role="list" class="-mx-2 mt-2 space-y-1">
                                     <li>
+                                        <x-navigation.nav-link href="{{ route('admin.user-roles') }}" :active="request()->routeIs('admin.user-roles')">
+                                            {{ __('User Roles') }}
+                                        </x-navigation.nav-link>
+                                    </li>
+                                    <li>
                                         <x-navigation.nav-link href="{{ route('admin.invited-emails') }}" :active="request()->routeIs('admin.invited-emails')">
                                             {{ __('Invited Emails') }}
                                         </x-navigation.nav-link>
@@ -43,6 +48,11 @@
                                     <li>
                                         <x-navigation.nav-link href="{{ route('admin.roles') }}" :active="request()->routeIs('admin.roles')">
                                             {{ __('Roles') }}
+                                        </x-navigation.nav-link>
+                                    </li>
+                                    <li>
+                                        <x-navigation.nav-link href="{{ route('admin.permissions') }}" :active="request()->routeIs('admin.permissions')">
+                                            {{ __('Permissions') }}
                                         </x-navigation.nav-link>
                                     </li>
                                 </ul>
@@ -80,6 +90,11 @@
                         </div>
                         <ul role="list" class="-mx-2 mt-2 space-y-1">
                             <li>
+                                <x-navigation.nav-link href="{{ route('admin.user-roles') }}" :active="request()->routeIs('admin.user-roles')">
+                                    {{ __('User Roles') }}
+                                </x-navigation.nav-link>
+                            </li>
+                            <li>
                                 <x-navigation.nav-link href="{{ route('admin.invited-emails') }}" :active="request()->routeIs('admin.invited-emails')">
                                     {{ __('Invited Emails') }}
                                 </x-navigation.nav-link>
@@ -87,6 +102,11 @@
                             <li>
                                 <x-navigation.nav-link href="{{ route('admin.roles') }}" :active="request()->routeIs('admin.roles')">
                                     {{ __('Roles') }}
+                                </x-navigation.nav-link>
+                            </li>
+                            <li>
+                                <x-navigation.nav-link href="{{ route('admin.permissions') }}" :active="request()->routeIs('admin.permissions')">
+                                    {{ __('Permissions') }}
                                 </x-navigation.nav-link>
                             </li>
                         </ul>

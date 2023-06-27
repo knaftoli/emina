@@ -33,4 +33,12 @@ Route::middleware([
     Route::get('/admin/roles', function () {
         return view('admin/roles/page');
     })->name('admin.roles');
+
+    Route::get('/admin/permissions', function () {
+        return view('admin/permissions/page');
+    })->name('admin.permissions');
+
+    Route::get('/admin/user-roles', function () {
+        return view('admin/user-roles/page');
+    })->name('admin.user-roles');
 });
