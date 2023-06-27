@@ -13,12 +13,10 @@
     @livewireStyles
 </head>
 
-<body class="h-full">
-
+<body class="h-full selection:bg-indigo-300 selection:text-indigo-900">
     <div >
-
-        <x-navigation-menu />
-        <main class="py-10 lg:pl-48">
+        <x-navigation.navigation-menu />
+        <main class="py-4 lg:pl-48">
             <div class="px-4 sm:px-6 lg:px-8">
                 {{-- <!-- Your content --> --}}
                 {{ $slot }}
@@ -26,6 +24,7 @@
         </main>
     </div>
     @livewireScripts
+    @livewire('livewire-ui-modal')
 </body>
 
 </html>

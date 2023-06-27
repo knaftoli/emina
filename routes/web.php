@@ -25,4 +25,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/admin/invited-emails', function () {
+        return view('admin/invited-emails/page');
+    })->name('admin.invited-emails');
+
+    Route::get('/admin/roles', function () {
+        return view('admin/roles/page');
+    })->name('admin.roles');
 });

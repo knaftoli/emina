@@ -25,9 +25,9 @@
                             <li>
                                 <ul role="list" class="-mx-2 space-y-1">
                                     <li>
-                                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                        <x-navigation.nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                             {{ __('Dashboard') }}
-                                        </x-nav-link>
+                                        </x-navigation.nav-link>
                                     </li>
                                 </ul>
                             </li>
@@ -36,13 +36,14 @@
                                 <div class="text-xs font-semibold leading-6 text-gray-400">Admin Settings</div>
                                 <ul role="list" class="-mx-2 mt-2 space-y-1">
                                     <li>
-                                        {{-- <!-- Current: "bg-gray-50 text-indigo-600", Default: "text-gray-700 hover:text-indigo-600 hover:bg-gray-50" --> --}}
-                                        <a href="#"
-                                            class="text-gray-700 hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                            <span
-                                                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-blue-600 group-hover:text-blue-600">H</span>
-                                            <span class="truncate">Heroicons</span>
-                                        </a>
+                                        <x-navigation.nav-link href="{{ route('admin.invited-emails') }}" :active="request()->routeIs('admin.invited-emails')">
+                                            {{ __('Invited Emails') }}
+                                        </x-navigation.nav-link>
+                                    </li>
+                                    <li>
+                                        <x-navigation.nav-link href="{{ route('admin.roles') }}" :active="request()->routeIs('admin.roles')">
+                                            {{ __('Roles') }}
+                                        </x-navigation.nav-link>
                                     </li>
                                 </ul>
                             </li>
@@ -65,29 +66,34 @@
                     <li>
                         <ul role="list" class="-mx-2 space-y-1">
                             <li>
-                                <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                <x-navigation.nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                     <x-wui-icon name="home" class="h-6 w-6" />
                                     {{ __('Dashboard') }}
-                                </x-nav-link>
+                                </x-navigation.nav-link>
                             </li>
                         </ul>
                     </li>
                     <li>
                         {{-- admin nav --}}
-                        <div class="text-xs font-semibold leading-6 text-gray-600">
+                        <div class="text-xs font-semibold leading-6 text-blue-600">
                             Admin Menue
                         </div>
                         <ul role="list" class="-mx-2 mt-2 space-y-1">
                             <li>
-                                <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('invited-emails')">
+                                <x-navigation.nav-link href="{{ route('admin.invited-emails') }}" :active="request()->routeIs('admin.invited-emails')">
                                     {{ __('Invited Emails') }}
-                                </x-nav-link>
+                                </x-navigation.nav-link>
+                            </li>
+                            <li>
+                                <x-navigation.nav-link href="{{ route('admin.roles') }}" :active="request()->routeIs('admin.roles')">
+                                    {{ __('Roles') }}
+                                </x-navigation.nav-link>
                             </li>
                         </ul>
                     </li>
                     <li class="-mx-6 mt-auto">
                         <a href="{{ route('profile.show') }}"
-                            class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
+                            class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-blue-700 hover:bg-gray-50">
                             <x-wui-avatar xs />
                             <span class="sr-only">Your profile</span>
                             <span aria-hidden="true">{{ Auth::user()->name }}</span>
