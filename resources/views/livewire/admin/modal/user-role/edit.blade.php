@@ -9,7 +9,7 @@
                             <div class="relative flex items-start">
                                 <div class="flex h-6 items-center">
                                     <input
-                                        wire:model='checkedRoles'
+                                        wire:model.defer='checkedRoles'
                                         id="{{$role->id}}"
                                         value="{{$role->name}}"
                                         type="checkbox"

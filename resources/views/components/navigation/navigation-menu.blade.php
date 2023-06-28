@@ -31,6 +31,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @can('view admin settings')
                             <li>
                                 {{-- admin nav --}}
                                 <div class="text-xs font-semibold leading-6 text-gray-400">Admin Settings</div>
@@ -57,6 +58,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @endcan
                         </ul>
                     </nav>
                 </div>
@@ -83,6 +85,7 @@
                             </li>
                         </ul>
                     </li>
+                    @can('view admin settings')
                     <li>
                         {{-- admin nav --}}
                         <div class="text-xs font-semibold leading-6 text-blue-600">
@@ -111,6 +114,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endcan
                     <li class="-mx-6 mt-auto">
                         <a href="{{ route('profile.show') }}"
                             class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-blue-700 hover:bg-gray-50">

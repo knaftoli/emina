@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Modal\Role;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use LivewireUI\Modal\ModalComponent;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
@@ -9,6 +10,8 @@ use Spatie\Permission\Models\Permission;
 
 class Create extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public String $role;
     public $permissions;
     public $checkedPermissions = [];
@@ -22,6 +25,7 @@ class Create extends ModalComponent
     }
 
     function store() {
+        $this->authorize('edit admin settings');
         $this->validate();
         $role = Role::create(['guard_name' => 'web', 'name' => Str::lower($this->role)]);
         $role->syncPermissions($this->checkedPermissions);

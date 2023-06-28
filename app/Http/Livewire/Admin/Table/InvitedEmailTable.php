@@ -56,7 +56,7 @@ class InvitedEmailTable extends DataTableComponent
                 ->searchable(),
            Column::make('')
                 ->label(
-                    fn($row, Column $column) => view('modal.invited-emails.buttons.edit-delete')->withValue($row->id)
+                    fn($row, Column $column) => view('admin.invited-emails.modal.buttons.edit-delete')->withValue($row->id)
                 )
                 ->html(),
         ];

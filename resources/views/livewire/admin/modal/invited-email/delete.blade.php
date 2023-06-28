@@ -1,5 +1,5 @@
-<x-wui-card title="Delete Permission">
-    Are you sure you want to delete <span class="font-bold">{{ $permission->name }}</span> permission from the list?
+<x-wui-card title="Delete Invited Email">
+    Are you sure you want to delete <span class="font-bold">{{ $invitedEmail->name }}</span> from the list?
 
     <x-slot name="footer">
         <div class="flex justify-items-center justify-end space-x-4">

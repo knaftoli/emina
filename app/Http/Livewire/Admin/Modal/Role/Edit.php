@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Modal\Role;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use LivewireUI\Modal\ModalComponent;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
@@ -10,6 +11,8 @@ use Spatie\Permission\Models\Permission;
 
 class Edit extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public Role $editing;
     public $permissions;
     public $checkedPermissions = [];
@@ -36,6 +39,7 @@ class Edit extends ModalComponent
     }
 
     function update() {
+        $this->authorize('edit admin settings');
         $this->validate();
         $this->editing->name = Str::lower($this->editing->name);
         $this->editing->save();

@@ -1,5 +1,5 @@
 <x-wui-card title="Delete Role">
-    Are you sure you want to delete {{ $role->name }} from the list?
+    Are you sure you want to delete <span class="font-bold">{{ $role->name }}</span> from the list?
 
     <x-slot name="footer">
         <div class="flex justify-items-center justify-end space-x-4">

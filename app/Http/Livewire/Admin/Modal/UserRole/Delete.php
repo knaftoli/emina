@@ -1,31 +1,27 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Modal\Permission;
+namespace App\Http\Livewire\Admin\Modal\UserRole;
 
+use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use LivewireUI\Modal\ModalComponent;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Str;
 
 class Delete extends ModalComponent
 {
     use AuthorizesRequests;
 
-    public Permission $permission;
-
-    function mount() {
-        $this->permission->name = Str::of($this->permission->name)->ucfirst();
-    }
+    public User $user;
 
     function destroy() {
         $this->authorize('edit admin settings');
-        $this->permission->delete();
+        $this->user->tokens->each->delete();
+        $this->user->delete();
         $this->emit('refreshDatatable');
         $this->closeModal();
     }
 
     public function render()
     {
-        return view('livewire.admin.modal.permission.delete');
+        return view('livewire.admin.modal.user-role.delete');
     }
 }

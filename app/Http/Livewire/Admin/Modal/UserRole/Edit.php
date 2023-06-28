@@ -4,11 +4,14 @@ namespace App\Http\Livewire\Admin\Modal\UserRole;
 
 use App\Models\InvitedEmail;
 use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use LivewireUI\Modal\ModalComponent;
 use Spatie\Permission\Models\Role;
 
 class Edit extends ModalComponent
 {
+    use AuthorizesRequests;
+
     public $roles;
     public $checkedRoles = [];
     public User $user;
@@ -25,6 +28,7 @@ class Edit extends ModalComponent
     }
 
     function update() {
+        $this->authorize('edit admin settings');
         $this->user->syncRoles($this->checkedRoles);
         $this->emit('refreshDatatable');
         $this->closeModal();

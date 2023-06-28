@@ -8,16 +8,14 @@ use LivewireUI\Modal\ModalComponent;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
 
-class Create extends ModalComponent
+class Edit extends ModalComponent
 {
     use AuthorizesRequests;
 
-    public InvitedEmail $invitedEmail;
+    public InvitedEmail $editing;
     public $options = [];
 
-    public function mount()
-    {
-        $this->invitedEmail = InvitedEmail::make();
+    function mount() {
         foreach(Role::all() as $role){
             $this->options[] = [
                 'value' => $role->name,
@@ -29,23 +27,23 @@ class Create extends ModalComponent
     public function rules()
     {
         return [
-            'invitedEmail.name' => 'required|min:3',
-            'invitedEmail.email' => 'required|email|unique:users,email',
-            'invitedEmail.role' => 'required|exists:roles,name',
+            'editing.name' => 'required|min:3',
+            'editing.email' => 'required|email|unique:users,email',
+            'editing.role' => 'required|exists:roles,name',
         ];
     }
 
-    public function store()
+    public function update()
     {
         $this->authorize('edit admin settings');
         $this->validate();
-        $this->invitedEmail->save();
+        $this->editing->save();
         $this->emit('refreshDatatable');
         $this->closeModal();
     }
 
     public function render()
     {
-        return view('livewire.admin.modal.invited-email.create');
+        return view('livewire.admin.modal.invited-email.edit');
     }
 }
