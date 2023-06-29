@@ -26,7 +26,7 @@ class Create extends ModalComponent
         }
     }
 
-    public function rules()
+    protected function rules()
     {
         return [
             'invitedEmail.name' => 'required|min:3',

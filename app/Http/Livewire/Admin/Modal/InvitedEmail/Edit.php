@@ -24,7 +24,7 @@ class Edit extends ModalComponent
         }
     }
 
-    public function rules()
+    protected function rules()
     {
         return [
             'editing.name' => 'required|min:3',
