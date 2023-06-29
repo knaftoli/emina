@@ -15,6 +15,15 @@ class Edit extends ModalComponent
     public InvitedEmail $editing;
     public $options = [];
 
+    protected function rules()
+    {
+        return [
+            'editing.name' => 'required|min:3',
+            'editing.email' => 'required|email|unique:users,email',
+            'editing.role' => 'required|exists:roles,name',
+        ];
+    }
+
     function mount() {
         foreach(Role::all() as $role){
             $this->options[] = [
@@ -24,13 +33,8 @@ class Edit extends ModalComponent
         }
     }
 
-    protected function rules()
-    {
-        return [
-            'editing.name' => 'required|min:3',
-            'editing.email' => 'required|email|unique:users,email',
-            'editing.role' => 'required|exists:roles,name',
-        ];
+    function updated($propertyName) {
+        $this->validateOnly($propertyName);
     }
 
     public function update()

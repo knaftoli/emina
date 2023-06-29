@@ -2,14 +2,14 @@
     <form wire:submit.prevent="store" id="create-form">
         <div class="space-y-4 px-3">
             <div>
-                <x-wui-input wire:model.defer='invitedEmail.name' label="Full Name" placeholder="Full Name"/>
+                <x-wui-input wire:model.lazy='invitedEmail.name' label="Full Name" placeholder="Full Name"/>
             </div>
             <div>
-                <x-wui-input wire:model.defer='invitedEmail.email' label="Email" placeholder="Email"/>
+                <x-wui-input wire:model.lazy='invitedEmail.email' label="Email" placeholder="Email"/>
             </div>
             <div>
                 <x-wui-select
-                    wire:model.defer='invitedEmail.role'
+                    wire:model='invitedEmail.role'
                     label="Role"
                     placeholder="Select a role"
                     :options="$options"

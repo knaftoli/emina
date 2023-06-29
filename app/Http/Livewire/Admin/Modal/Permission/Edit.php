@@ -17,14 +17,6 @@ class Edit extends ModalComponent
     public $roles;
     public $checkedRoles = [];
 
-    function mount() {
-        $this->editing->name = Str::of($this->editing->name)->ucfirst();
-        $this->roles = Role::all()->sortBy('name');
-        foreach ($this->editing->roles as $key => $value) {
-            $this->checkedRoles[] = $value['name'];
-        }
-    }
-
     protected function rules()
     {
         return [
@@ -34,6 +26,18 @@ class Edit extends ModalComponent
                 Rule::unique('permissions', 'name')->ignore($this->editing),
             ],
         ];
+    }
+
+    function mount() {
+        $this->editing->name = Str::of($this->editing->name)->ucfirst();
+        $this->roles = Role::all()->sortBy('name');
+        foreach ($this->editing->roles as $key => $value) {
+            $this->checkedRoles[] = $value['name'];
+        }
+    }
+
+    function updated($propertyName) {
+        $this->validateOnly($propertyName);
     }
 
     function update() {

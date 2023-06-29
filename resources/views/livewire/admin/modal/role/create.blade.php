@@ -2,7 +2,7 @@
     <form wire:submit.prevent="store" id="create-form">
         <div class="space-y-4 px-3">
             <div>
-                <x-wui-input wire:model.defer='role' label="Name" placeholder="Name"/>
+                <x-wui-input wire:model.lazy='role' label="Name" placeholder="Name"/>
             </div>
             <div>
                 <fieldset>

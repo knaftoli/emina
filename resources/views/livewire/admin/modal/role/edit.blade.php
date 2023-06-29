@@ -2,7 +2,7 @@
     <form wire:submit.prevent="update" id="edit-form">
         <div class="space-y-4 px-3">
             <div>
-                <x-wui-input wire:model.defer='editing.name' label="Name" placeholder="Name" />
+                <x-wui-input wire:model.lazy='editing.name' label="Name" placeholder="Name" />
             </div>
 
             <div>

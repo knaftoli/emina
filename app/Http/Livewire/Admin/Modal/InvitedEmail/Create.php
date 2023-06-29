@@ -35,6 +35,10 @@ class Create extends ModalComponent
         ];
     }
 
+    function updated($propertyName) {
+        $this->validateOnly($propertyName);
+    }
+
     public function store()
     {
         $this->authorize('edit admin settings');

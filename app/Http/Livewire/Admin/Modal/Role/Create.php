@@ -24,6 +24,10 @@ class Create extends ModalComponent
         $this->permissions = Permission::all();
     }
 
+    function updated($propertyName) {
+        $this->validateOnly($propertyName);
+    }
+
     function store() {
         $this->authorize('edit admin settings');
         $this->validate();

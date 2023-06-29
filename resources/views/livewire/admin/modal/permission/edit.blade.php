@@ -2,7 +2,7 @@
     <form wire:submit.prevent="update" id="edit-form">
         <div class="space-y-4 px-3">
             <div>
-                <x-wui-input wire:model.defer='editing.name' label="Name" placeholder="Name"/>
+                <x-wui-input wire:model.lazy='editing.name' label="Name" placeholder="Name"/>
             </div>
             <div>
                 <fieldset>
@@ -17,7 +17,6 @@
                                         value="{{$role->name}}"
                                         type="checkbox"
                                         class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
-                                        @checked(in_array($role->name, $checkedRoles))
                                     />
                                 </div>
                                 <div class="ml-3 text-sm leading-6">

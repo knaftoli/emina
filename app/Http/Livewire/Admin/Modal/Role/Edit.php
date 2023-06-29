@@ -38,6 +38,10 @@ class Edit extends ModalComponent
         ];
     }
 
+    function updated($propertyName) {
+        $this->validateOnly($propertyName);
+    }
+
     function update() {
         $this->authorize('edit admin settings');
         $this->validate();
