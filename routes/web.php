@@ -26,6 +26,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('/listings', function () {
+        return view('listings');
+    })->name('listings');
+
     Route::get('/admin/invited-emails', function () {
         return view('admin/invited-emails/page');
     })->name('admin.invited-emails');

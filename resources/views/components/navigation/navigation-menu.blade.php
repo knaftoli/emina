@@ -29,6 +29,11 @@
                                             {{ __('Dashboard') }}
                                         </x-navigation.nav-link>
                                     </li>
+                                    <li>
+                                        <x-navigation.nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
+                                            {{ __('Listings') }}
+                                        </x-navigation.nav-link>
+                                    </li>
                                 </ul>
                             </li>
                             @can('view admin settings')
@@ -81,6 +86,13 @@
                                 <x-navigation.nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                     <x-wui-icon name="home" class="h-6 w-6" />
                                     {{ __('Dashboard') }}
+                                </x-navigation.nav-link>
+                            </li>
+                            <li>
+                                <x-navigation.nav-link href="{{ route('listings') }}" :active="request()->routeIs('listings')">
+                                    <x-wui-icon name="view-list
+                                    " class="h-6 w-6" />
+                                    {{ __('Listings') }}
                                 </x-navigation.nav-link>
                             </li>
                         </ul>
