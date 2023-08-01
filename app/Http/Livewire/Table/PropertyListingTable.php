@@ -25,12 +25,7 @@ class PropertyListingTable extends DataTableComponent
 
         $this->setComponentWrapperAttributes([
             'class' => 'p-4',
-          ]);
-
-          $this->setTableAttributes([
-            'default' => true,
-            'class' => 'table-auto',
-          ]);
+        ]);
 
         $this->setTbodyAttributes([
             'default' => true,
@@ -45,6 +40,12 @@ class PropertyListingTable extends DataTableComponent
                 'class' => 'border-gray-200 hover:bg-gray-100'
             ];
         });
+
+        $this->setTdAttributes(function(Column $column, $row, $columnIndex, $rowIndex) {
+              return [
+                'class' => 'px-6 py-4 text-sm font-medium dark:text-white',
+              ];
+          });
     }
 
     public function columns(): array
