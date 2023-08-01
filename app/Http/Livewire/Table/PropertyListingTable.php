@@ -27,6 +27,11 @@ class PropertyListingTable extends DataTableComponent
             'class' => 'p-4',
           ]);
 
+          $this->setTableAttributes([
+            'default' => true,
+            'class' => 'table-auto',
+          ]);
+
         $this->setTbodyAttributes([
             'default' => true,
             'class' => 'text-gray-600',
