@@ -11,7 +11,7 @@ use RoachPHP\Roach;
 class Scrape extends Component
 {
     function scrape() {
-        set_time_limit(300);
+        set_time_limit(900);
         Roach::startSpider(RightMoveSpider::class);
     }
 
