@@ -32,6 +32,8 @@ class PropertyListingTable extends DataTableComponent
             'class' => 'text-gray-600',
         ]);
 
+        $this->setDefaultSort('created_at', 'desc');
+
         // Takes a callback that gives you the current row and its index
         $this->setTrAttributes(function($row, $index) {
             return [
