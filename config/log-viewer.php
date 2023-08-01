@@ -1,5 +1,6 @@
 <?php
 
+use Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer;
 use Opcodes\LogViewer\Level;
 
 return [
@@ -72,7 +73,7 @@ return [
     'middleware' => [
         'web',
         'view-logs',
-        \Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer::class,
+        AuthorizeLogViewer::class,
     ],
 
     /*
