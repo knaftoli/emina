@@ -43,6 +43,7 @@ class PropertyListingTable extends DataTableComponent
 
         $this->setTdAttributes(function(Column $column, $row, $columnIndex, $rowIndex) {
               return [
+                'default' => false,
                 'class' => 'px-6 py-4 text-sm font-medium dark:text-white',
               ];
           });
