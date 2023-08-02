@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Table;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\PropertyListing;
-use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 
 class PropertyListingTable extends DataTableComponent
 {
@@ -52,20 +51,20 @@ class PropertyListingTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Address", "address")
-                ->sortable()
-                ->searchable(),
+            Column::make("Address", 'address')
+                ->searchable()
+                ->format(
+                    fn($value, $row, Column $column)  => '<a href="' . $row->uri . '" target="_blank" class="text-blue-600">' . $row->address . '</a>'
+                )
+                ->html(),
             Column::make("Agent", "agent")
                 ->sortable()
                 ->searchable(),
             Column::make("Price", "price")
                 ->sortable()
                 ->searchable(),
-            Column::make('link')
-                ->label(
-                    fn($row, Column $column)  => '<a href="' . $row->uri . '" target="_blank" class="text-blue-600">Link</a>'
-                )
-                ->html(),
+            Column::make('Search', 'search_term')
+                    ->sortable(),
             Column::make("Added", "created_at")
                 ->sortable()
                 ->format(
