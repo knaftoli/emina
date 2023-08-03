@@ -2,8 +2,10 @@
 
 namespace App\Spiders\ItemProcessors;
 
+use App\Mail\NewListing;
 use App\Models\PropertyListing;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use RoachPHP\ItemPipeline\ItemInterface;
 use RoachPHP\ItemPipeline\Processors\ItemProcessorInterface;
 use RoachPHP\Support\Configurable;
@@ -26,6 +28,10 @@ class RightMoveItemProcessor implements ItemProcessorInterface
                 'uri' => $props['uri'],
             ]);
             $property->save();
+            foreach (['knaftoli@gmail.com', 'shaul@cliffsidegroup.co.uk '] as $recipient) {
+                Mail::to($recipient)->send(new NewListing($property));
+            }
+            Log::info('Email Sent');
         }
         return $item;
     }

@@ -99,8 +99,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'emina@emina.co.uk'),
+        'name' => env('MAIL_FROM_NAME', 'Emina Solutions'),
+        'reply_to' => ['address' => 'emina@emina.co.uk', 'name' => 'Emina Solutions'],
     ],
 
     /*
