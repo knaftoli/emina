@@ -1,1 +1,3 @@
-@livewire('property-listing.buttons.scrape')
+@can('edit admin settings')
+    @livewire('property-listing.buttons.scrape')
+@endcan

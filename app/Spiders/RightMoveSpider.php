@@ -110,7 +110,7 @@ class RightMoveSpider extends BasicSpider
             Str::of($text)->contains('Cash buyers') ||
             Str::of($text)->contains('CASH BUYERS')
         ){
-            $search = 'cash';
+            $search = 'Cash Buyers';
             $request = $response->getRequest();
             $propertyId = $request->getMeta('propertyId');
             $agent = $request->getMeta('agent');
@@ -125,7 +125,7 @@ class RightMoveSpider extends BasicSpider
             Str::of($text)->contains('Short Lease') ||
             Str::of($text)->contains('SHORT LEASE')
         ){
-            $search = 'short lease';
+            $search = 'Short Lease';
             $request = $response->getRequest();
             $propertyId = $request->getMeta('propertyId');
             $agent = $request->getMeta('agent');
