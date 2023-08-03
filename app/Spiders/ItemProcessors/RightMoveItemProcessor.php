@@ -28,7 +28,7 @@ class RightMoveItemProcessor implements ItemProcessorInterface
                 'uri' => $props['uri'],
             ]);
             $property->save();
-            foreach (['knaftoli@gmail.com', 'shaul@cliffsidegroup.co.uk '] as $recipient) {
+            foreach (['knaftoli@gmail.com', 'shaul@cliffsidegroup.co.uk'] as $recipient) {
                 Mail::to($recipient)->send(new NewListing($property));
             }
             Log::info('Email Sent');
