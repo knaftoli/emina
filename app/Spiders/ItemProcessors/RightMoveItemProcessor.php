@@ -4,7 +4,6 @@ namespace App\Spiders\ItemProcessors;
 
 use App\Mail\NewListing;
 use App\Models\PropertyListing;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use RoachPHP\ItemPipeline\ItemInterface;
 use RoachPHP\ItemPipeline\Processors\ItemProcessorInterface;

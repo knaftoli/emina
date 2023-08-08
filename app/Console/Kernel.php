@@ -2,10 +2,8 @@
 
 namespace App\Console;
 
-use App\Spiders\RightMoveSpider;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,9 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('app:scrape')->hourlyAt(35);
-        $schedule->command('app:delete-listing')->hourlyAt(33);
+        $schedule->command('app:scrape')->hourlyAt(13);
+        $schedule->command('app:delete-listing')->hourlyAt(37);
     }
 
     /**
