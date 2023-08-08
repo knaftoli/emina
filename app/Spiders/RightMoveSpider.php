@@ -18,7 +18,9 @@ use Illuminate\Support\Str;
 class RightMoveSpider extends BasicSpider
 {
     public array $startUrls = [
-        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E815110&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1'
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E815110&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1276036&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+
     ];
 
     public array $downloaderMiddleware = [
