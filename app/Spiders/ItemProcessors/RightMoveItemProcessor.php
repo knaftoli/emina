@@ -18,7 +18,6 @@ class RightMoveItemProcessor implements ItemProcessorInterface
     {
         $props = $item->all();
         if(count(PropertyListing::where('right_move_id', $props['propertyId'])->get()) < 1){
-            Log::info('hello');
             $property = PropertyListing::create([
                 'right_move_id' => $props['propertyId'],
                 'agent' => $props['agent'],
@@ -26,12 +25,17 @@ class RightMoveItemProcessor implements ItemProcessorInterface
                 'address' => $props['address'],
                 'search_term' => $props['search'],
                 'uri' => $props['uri'],
+                'relevant' => $props['relevant'],
             ]);
             $property->save();
-            foreach (['knaftoli@gmail.com', 'shaul@cliffsidegroup.co.uk'] as $recipient) {
-                Mail::to($recipient)->send(new NewListing($property));
+            if($props['relevant']){
+                // foreach (['knaftoli@gmail.com'] as $recipient) {
+                //     Mail::to($recipient)->send(new NewListing($property));
+                // }
+                foreach (['knaftoli@gmail.com', 'shaul@cliffsidegroup.co.uk'] as $recipient) {
+                    Mail::to($recipient)->send(new NewListing($property));
+                }
             }
-            Log::info('Email Sent');
         }
         return $item;
     }

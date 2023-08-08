@@ -5,17 +5,28 @@ namespace App\Http\Livewire\Table;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\PropertyListing;
+use Illuminate\Database\Eloquent\Builder;
 
 class PropertyListingTable extends DataTableComponent
 {
-    protected $model = PropertyListing::class;
+    // protected $model = PropertyListing::class;
+
+    public function builder(): Builder
+    {
+        return PropertyListing::query()
+            ->where('relevant', 1);
+    }
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setAdditionalSelects(['property_listings.id as id']);
-        $this->setAdditionalSelects(['property_listings.right_move_id as right_move_id']);
-        $this->setAdditionalSelects(['property_listings.uri as uri']);
+        $this->setAdditionalSelects([
+            'property_listings.id as id',
+            'property_listings.right_move_id as right_move_id',
+            'property_listings.relevant as relevant',
+            'property_listings.uri as uri',
+        ]);
+
         $this->setColumnSelectStatus(false);
 
         $this->setConfigurableAreas([
@@ -72,4 +83,6 @@ class PropertyListingTable extends DataTableComponent
                 ),
         ];
     }
+
+
 }

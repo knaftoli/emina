@@ -20,7 +20,7 @@ class Scrape extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Scrape Right Move';
 
     /**
      * Execute the console command.

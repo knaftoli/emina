@@ -3,6 +3,7 @@
 namespace App\Spiders;
 
 use App\Spiders\ItemProcessors\RightMoveItemProcessor;
+use App\Spiders\RequestMiddleware\RightMoveRequestMiddleware;
 use Generator;
 
 use RoachPHP\Downloader\Middleware\RequestDeduplicationMiddleware;
@@ -25,7 +26,7 @@ class RightMoveSpider extends BasicSpider
     ];
 
     public array $spiderMiddleware = [
-        //
+        RightMoveRequestMiddleware::class,
     ];
 
     public array $itemProcessors = [
@@ -111,14 +112,9 @@ class RightMoveSpider extends BasicSpider
             Str::of($text)->contains('CASH BUYERS')
         ){
             $search = 'Cash Buyers';
-            $request = $response->getRequest();
-            $propertyId = $request->getMeta('propertyId');
-            $agent = $request->getMeta('agent');
-            $price = $request->getMeta('price');
-            $address = $request->getMeta('address');
-            $uri = $response->getUri();
+            $relevant = true;
 
-            yield $this->item(compact('propertyId', 'agent', 'price', 'address', 'uri', 'search'));
+            yield $this->item($this->compactListing($response, $search, $relevant));
         }elseif(
             Str::of($text)->contains('short lease') ||
             Str::of($text)->contains('Short lease') ||
@@ -126,14 +122,44 @@ class RightMoveSpider extends BasicSpider
             Str::of($text)->contains('SHORT LEASE')
         ){
             $search = 'Short Lease';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant));
+        }elseif(
+            Str::of($text)->contains('japanese knotweed') ||
+            Str::of($text)->contains('Japanese knotweed') ||
+            Str::of($text)->contains('Japanese Knotweed') ||
+            Str::of($text)->contains('JAPANESE KNOTWEED')
+        ){
+            $search = 'Japanese Knotweed';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant));
+        }else{
+            $search = 'none';
+            $relevant = false;
+
+            yield $this->item($this->compactListing($response, $search, $relevant));
+        }
+    }
+
+    protected function compactListing(Response $response, $search, $relevant) {
+        if ($relevant){
             $request = $response->getRequest();
             $propertyId = $request->getMeta('propertyId');
             $agent = $request->getMeta('agent');
             $price = $request->getMeta('price');
             $address = $request->getMeta('address');
             $uri = $response->getUri();
-
-            yield $this->item(compact('propertyId', 'agent', 'price', 'address', 'uri', 'search'));
+            return compact('propertyId', 'agent', 'price', 'address', 'uri', 'search', 'relevant');
+        }else{
+            $request = $response->getRequest();
+            $propertyId = $request->getMeta('propertyId');
+            $agent = 'none';
+            $price = 'none';
+            $address = 'none';
+            $uri = 'none';
+            return compact('propertyId', 'agent', 'price', 'address', 'uri', 'search', 'relevant');
         }
     }
 }
