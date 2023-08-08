@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('app:scrape')->hourlyAt(35);
-        $schedule->command('app:delete-listing')->hourlyAt(45);
+        $schedule->command('app:delete-listing')->hourlyAt(00);
     }
 
     /**
