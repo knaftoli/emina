@@ -18,9 +18,14 @@ use Illuminate\Support\Str;
 class RightMoveSpider extends BasicSpider
 {
     public array $startUrls = [
-        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E815110&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
-        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1276036&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
-        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E870388&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1357219&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1493003&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E45694&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E302393&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E883464&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1692856&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1490484&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1344302&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
 
     ];
 
