@@ -24,7 +24,7 @@ class RightMoveSpider extends BasicSpider
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E302393&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E883464&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1692856&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
-        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1490484&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E345212&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1344302&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
 
     ];
