@@ -38,6 +38,7 @@ class RightMoveSpider extends BasicSpider
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E4173320&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E160519&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
         'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E814297&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
+        'https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=POSTCODE%5E1441391&radius=40.0&includeSSTC=false&maxDaysSinceAdded=1',
     ];
 
     public array $downloaderMiddleware = [
