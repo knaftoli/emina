@@ -117,12 +117,12 @@ class RightMoveSpider extends BasicSpider
     function parsePropertyPage(Response $response) : Generator {
         $text = $response->filter("article[data-testid='primary-layout']")->html();
         if(
-            Str::of($text)->contains('cash buyers') ||
-            Str::of($text)->contains('Cash Buyers') ||
-            Str::of($text)->contains('Cash buyers') ||
-            Str::of($text)->contains('CASH BUYERS')
+            Str::of($text)->contains('japanese knotweed') ||
+            Str::of($text)->contains('Japanese knotweed') ||
+            Str::of($text)->contains('Japanese Knotweed') ||
+            Str::of($text)->contains('JAPANESE KNOTWEED')
         ){
-            $search = 'Cash Buyers';
+            $search = 'Japanese Knotweed';
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant));
@@ -137,12 +137,22 @@ class RightMoveSpider extends BasicSpider
 
             yield $this->item($this->compactListing($response, $search, $relevant));
         }elseif(
-            Str::of($text)->contains('japanese knotweed') ||
-            Str::of($text)->contains('Japanese knotweed') ||
-            Str::of($text)->contains('Japanese Knotweed') ||
-            Str::of($text)->contains('JAPANESE KNOTWEED')
+            Str::of($text)->contains('quick sale') ||
+            Str::of($text)->contains('Quick sale') ||
+            Str::of($text)->contains('Quick Sale') ||
+            Str::of($text)->contains('QUICK SALE')
         ){
-            $search = 'Japanese Knotweed';
+            $search = 'Quick Sale';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant));
+        }elseif(
+            Str::of($text)->contains('cash buyers') ||
+            Str::of($text)->contains('Cash Buyers') ||
+            Str::of($text)->contains('Cash buyers') ||
+            Str::of($text)->contains('CASH BUYERS')
+        ){
+            $search = 'Cash Buyers';
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant));
