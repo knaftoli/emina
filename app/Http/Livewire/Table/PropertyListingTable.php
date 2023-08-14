@@ -75,7 +75,8 @@ class PropertyListingTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Search', 'search_term')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
             Column::make("Added", "created_at")
                 ->sortable()
                 ->format(
