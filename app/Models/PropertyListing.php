@@ -17,5 +17,6 @@ class PropertyListing extends Model
         'search_term',
         'uri',
         'relevant',
+        'text',
     ];
 }

@@ -25,6 +25,7 @@ class RightMoveItemProcessor implements ItemProcessorInterface
                 'search_term' => $props['search'],
                 'uri' => $props['uri'],
                 'relevant' => $props['relevant'],
+                'text' => $props['text']
             ]);
             $property->save();
             if($props['relevant']){

@@ -134,7 +134,7 @@ class RightMoveSpider extends BasicSpider
             $search = 'Japanese Knotweed';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('structural') ||
             Str::of($text)->contains('Structural') ||
@@ -143,7 +143,7 @@ class RightMoveSpider extends BasicSpider
             $search = 'Structural';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('short lease') ||
             Str::of($text)->contains('Short lease') ||
@@ -153,7 +153,7 @@ class RightMoveSpider extends BasicSpider
             $search = 'Short Lease';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('non standard construction') ||
             Str::of($text)->contains('Non standard construction') ||
@@ -164,7 +164,7 @@ class RightMoveSpider extends BasicSpider
             $search = 'Non Standard Construction';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('UNMORTGAGEABLE') ||
             Str::of($text)->contains('Unmortgageable') ||
@@ -173,7 +173,7 @@ class RightMoveSpider extends BasicSpider
             $search = 'Unmortgageable';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('quick sale') ||
             Str::of($text)->contains('Quick sale') ||
@@ -183,7 +183,7 @@ class RightMoveSpider extends BasicSpider
             $search = 'Quick Sale';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('cash buyers') ||
             Str::of($text)->contains('Cash Buyers') ||
@@ -193,32 +193,22 @@ class RightMoveSpider extends BasicSpider
             $search = 'Cash Buyers';
             $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }else{
             $search = 'none';
             $relevant = false;
 
-            yield $this->item($this->compactListing($response, $search, $relevant));
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }
     }
 
-    protected function compactListing(Response $response, $search, $relevant) {
-        if ($relevant){
-            $request = $response->getRequest();
-            $propertyId = $request->getMeta('propertyId');
-            $agent = $request->getMeta('agent');
-            $price = $request->getMeta('price');
-            $address = $request->getMeta('address');
-            $uri = $response->getUri();
-            return compact('propertyId', 'agent', 'price', 'address', 'uri', 'search', 'relevant');
-        }else{
-            $request = $response->getRequest();
-            $propertyId = $request->getMeta('propertyId');
-            $agent = 'none';
-            $price = 'none';
-            $address = 'none';
-            $uri = 'none';
-            return compact('propertyId', 'agent', 'price', 'address', 'uri', 'search', 'relevant');
-        }
+    protected function compactListing(Response $response, $search, $relevant, $text) {
+        $request = $response->getRequest();
+        $propertyId = $request->getMeta('propertyId');
+        $agent = $request->getMeta('agent');
+        $price = $request->getMeta('price');
+        $address = $request->getMeta('address');
+        $uri = $response->getUri();
+        return compact('propertyId', 'agent', 'price', 'address', 'uri', 'search', 'relevant', 'text');
     }
 }
