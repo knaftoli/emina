@@ -168,6 +168,7 @@ class RightMoveSpider extends BasicSpider
         }elseif(
             Str::of($text)->contains('suffered from subsidence') ||
             Str::of($text)->contains('Subsidence') ||
+            Str::of($text)->contains('subsidence') ||
             Str::of($text)->contains('SUBSIDENCE') ||
             Str::of($text)->contains('Suffered from subsidence')
         ){
