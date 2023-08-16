@@ -222,6 +222,45 @@ class RightMoveSpider extends BasicSpider
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
+            Str::of($text)->contains('Wet Rot') ||
+            Str::of($text)->contains('Wet rot') ||
+            Str::of($text)->contains('wet rot') ||
+            Str::of($text)->contains('WET ROT')
+        ){
+            $search = 'Wet Rot';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Flat Roof') ||
+            Str::of($text)->contains('Flat roof') ||
+            Str::of($text)->contains('flat Roof') ||
+            Str::of($text)->contains('FLAT ROOF')
+        ){
+            $search = 'Flat Roof';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Invasive Weeds') ||
+            Str::of($text)->contains('Invasive weeds') ||
+            Str::of($text)->contains('invasive weeds') ||
+            Str::of($text)->contains('INVASIVE WEEDS')
+        ){
+            $search = 'Invasive Weeds';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Woodworm') ||
+            Str::of($text)->contains('woodworm') ||
+            Str::of($text)->contains('WOODWORM')
+        ){
+            $search = 'Woodworm';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
             Str::of($text)->contains('subject to structural') ||
             Str::of($text)->contains('Subject to structural') ||
             Str::of($text)->contains('SUBJECT TO STRUCTURAL')
