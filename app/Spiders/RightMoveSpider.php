@@ -166,11 +166,58 @@ class RightMoveSpider extends BasicSpider
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
+            Str::of($text)->contains('flying freehold') ||
+            Str::of($text)->contains('Flying freehold') ||
+            Str::of($text)->contains('Flying Freehold') ||
+            Str::of($text)->contains('FLYING FREEHOLD')
+        ){
+            $search = 'Flying Freehold';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
             Str::of($text)->contains('Subsidence') ||
             Str::of($text)->contains('subsidence') ||
             Str::of($text)->contains('SUBSIDENCE')
         ){
             $search = 'Subsidence';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Wall Tie') ||
+            Str::of($text)->contains('wall tie') ||
+            Str::of($text)->contains('WALL TIE')
+        ){
+            $search = 'Wall Tie';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Asbestos') ||
+            Str::of($text)->contains('asbestos') ||
+            Str::of($text)->contains('ASBESTOS')
+        ){
+            $search = 'Asbestos';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Damp') ||
+            Str::of($text)->contains('damp') ||
+            Str::of($text)->contains('DAMP')
+        ){
+            $search = 'Damp';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('Dry Rot') ||
+            Str::of($text)->contains('Dry rot') ||
+            Str::of($text)->contains('dry rot') ||
+            Str::of($text)->contains('DRY ROT')
+        ){
+            $search = 'Dry Rot';
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
