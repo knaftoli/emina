@@ -166,6 +166,16 @@ class RightMoveSpider extends BasicSpider
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
+            Str::of($text)->contains('suffered from subsidence') ||
+            Str::of($text)->contains('Subsidence') ||
+            Str::of($text)->contains('SUBSIDENCE') ||
+            Str::of($text)->contains('Suffered from subsidence')
+        ){
+            $search = 'Subsidence';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
             Str::of($text)->contains('quick sale') ||
             Str::of($text)->contains('Quick sale') ||
             Str::of($text)->contains('Quick Sale') ||
