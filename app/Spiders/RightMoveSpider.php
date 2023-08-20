@@ -255,7 +255,7 @@ class RightMoveSpider extends BasicSpider
             Str::of($text)->contains('cracking') ||
             Str::of($text)->contains('CRACKING')
         ){
-            $search = 'subject to structural';
+            $search = 'Cracking';
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
@@ -264,7 +264,7 @@ class RightMoveSpider extends BasicSpider
             Str::of($text)->contains('damage') ||
             Str::of($text)->contains('DAMAGE')
         ){
-            $search = 'subject to structural';
+            $search = 'Damage';
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
