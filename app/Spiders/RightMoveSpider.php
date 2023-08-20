@@ -287,6 +287,16 @@ class RightMoveSpider extends BasicSpider
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        }elseif(
+            Str::of($text)->contains('cash only') ||
+            Str::of($text)->contains('Cash Only') ||
+            Str::of($text)->contains('Cash only') ||
+            Str::of($text)->contains('CASH ONLY')
+        ){
+            $search = 'Cash Only';
+            $relevant = true;
+
+            yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }else{
             $search = 'none';
             $relevant = false;
