@@ -27,7 +27,7 @@ class DeleteListing extends Command
     public function handle()
     {
         PropertyListing::where('relevant', 0)
-            ->where('created_at', '<', now()->subHours(48))
+            ->where('created_at', '<', now()->subHours(96))
             ->delete();
     }
 }
