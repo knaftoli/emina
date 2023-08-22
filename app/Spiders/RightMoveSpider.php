@@ -90,6 +90,8 @@ class RightMoveSpider extends BasicSpider
                     $prop = $response->filter("#property-" . $propertyId);
                     if($prop->filter("div.propertyCard-contacts a.propertyCard-branchLogo-link")->count() > 0){
                         $agent = $prop->filter("div.propertyCard-contacts a.propertyCard-branchLogo-link")->attr('title');
+                    }else{
+                        $agent = 'none';
                     }
                     $price = $prop->filter('.propertyCard-priceValue')->text();
                     $address = $prop->filter('.propertyCard-address')->text();
