@@ -178,16 +178,6 @@ class RightMoveSpider extends BasicSpider
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
-            Str::of($text)->contains('flying freehold') ||
-            Str::of($text)->contains('Flying freehold') ||
-            Str::of($text)->contains('Flying Freehold') ||
-            Str::of($text)->contains('FLYING FREEHOLD')
-        ){
-            $search = 'Flying Freehold';
-            $relevant = true;
-
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
             Str::of($text)->contains('creeping freehold') ||
             Str::of($text)->contains('Creeping freehold') ||
             Str::of($text)->contains('Creeping Freehold') ||
