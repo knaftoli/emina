@@ -32,7 +32,7 @@ class RightMoveItemProcessor implements ItemProcessorInterface
                 // foreach (['knaftoli@gmail.com'] as $recipient) {
                 //     Mail::to($recipient)->send(new NewListing($property));
                 // }
-                foreach (['knaftoli@gmail.com', 'shaul@cliffsidegroup.co.uk'] as $recipient) {
+                foreach (['knaftoli@gmail.com'] as $recipient) {
                     Mail::to($recipient)->send(new NewListing($property));
                 }
             }

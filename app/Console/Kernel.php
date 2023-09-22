@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:scrape')->hourlyAt(47);
+        $schedule->command('app:scrape')->hourlyAt(19);
         $schedule->command('app:delete-listing')->hourlyAt(37);
     }
 
