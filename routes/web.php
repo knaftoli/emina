@@ -45,4 +45,8 @@ Route::middleware([
     Route::get('/admin/user-roles', function () {
         return view('admin/user-roles/page');
     })->name('admin.user-roles');
+
+    // Route::get('phpmyinfo', function () {
+    //     phpinfo();
+    // })->name('phpmyinfo');
 });
