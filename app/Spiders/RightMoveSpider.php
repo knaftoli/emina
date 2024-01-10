@@ -143,16 +143,7 @@ class RightMoveSpider extends BasicSpider
     function parsePropertyPage(Response $response) : Generator {
         $text = $response->filter("article[data-testid='primary-layout']")->html();
         if(
-            Str::of($text)->contains('japanese knotweed') ||
-            Str::of($text)->contains('Japanese knotweed') ||
-            Str::of($text)->contains('Japanese Knotweed') ||
-            Str::of($text)->contains('JAPANESE KNOTWEED')
-        ){
-            $search = 'Japanese Knotweed';
-            $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
             Str::of($text)->contains('short lease') ||
             Str::of($text)->contains('Short lease') ||
             Str::of($text)->contains('Short Lease') ||
@@ -162,130 +153,140 @@ class RightMoveSpider extends BasicSpider
             $relevant = true;
 
             yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('non standard construction') ||
-            Str::of($text)->contains('Non standard construction') ||
-            Str::of($text)->contains('Non Standard construction') ||
-            Str::of($text)->contains('Non Standard Construction') ||
-            Str::of($text)->contains('NON STANDARD CONSTRUCTION')
-        ){
-            $search = 'Non Standard Construction';
-            $relevant = true;
+        // }elseif(
+        //     Str::of($text)->contains('japanese knotweed') ||
+        //     Str::of($text)->contains('Japanese knotweed') ||
+        //     Str::of($text)->contains('Japanese Knotweed') ||
+        //     Str::of($text)->contains('JAPANESE KNOTWEED')
+        // ){
+        //     $search = 'Japanese Knotweed';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('UNMORTGAGEABLE') ||
-            Str::of($text)->contains('Unmortgageable') ||
-            Str::of($text)->contains('unmortgageable')
-        ){
-            $search = 'Unmortgageable';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('non standard construction') ||
+        //     Str::of($text)->contains('Non standard construction') ||
+        //     Str::of($text)->contains('Non Standard construction') ||
+        //     Str::of($text)->contains('Non Standard Construction') ||
+        //     Str::of($text)->contains('NON STANDARD CONSTRUCTION')
+        // ){
+        //     $search = 'Non Standard Construction';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Structural Movement') ||
-            Str::of($text)->contains('Structural movement') ||
-            Str::of($text)->contains('structural movement') ||
-            Str::of($text)->contains('STRUCTURAL MOVEMENT')
-        ){
-            $search = 'Structural Movement';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('UNMORTGAGEABLE') ||
+        //     Str::of($text)->contains('Unmortgageable') ||
+        //     Str::of($text)->contains('unmortgageable')
+        // ){
+        //     $search = 'Unmortgageable';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('creeping freehold') ||
-            Str::of($text)->contains('Creeping freehold') ||
-            Str::of($text)->contains('Creeping Freehold') ||
-            Str::of($text)->contains('CREEPING FREEHOLD')
-        ){
-            $search = 'Creeping Freehold';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Structural Movement') ||
+        //     Str::of($text)->contains('Structural movement') ||
+        //     Str::of($text)->contains('structural movement') ||
+        //     Str::of($text)->contains('STRUCTURAL MOVEMENT')
+        // ){
+        //     $search = 'Structural Movement';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Subsidence') ||
-            Str::of($text)->contains('subsidence') ||
-            Str::of($text)->contains('SUBSIDENCE')
-        ){
-            $search = 'Subsidence';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('creeping freehold') ||
+        //     Str::of($text)->contains('Creeping freehold') ||
+        //     Str::of($text)->contains('Creeping Freehold') ||
+        //     Str::of($text)->contains('CREEPING FREEHOLD')
+        // ){
+        //     $search = 'Creeping Freehold';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Wall Tie') ||
-            Str::of($text)->contains('wall tie') ||
-            Str::of($text)->contains('WALL TIE')
-        ){
-            $search = 'Wall Tie';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Subsidence') ||
+        //     Str::of($text)->contains('subsidence') ||
+        //     Str::of($text)->contains('SUBSIDENCE')
+        // ){
+        //     $search = 'Subsidence';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Asbestos') ||
-            Str::of($text)->contains('asbestos') ||
-            Str::of($text)->contains('ASBESTOS')
-        ){
-            $search = 'Asbestos';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Wall Tie') ||
+        //     Str::of($text)->contains('wall tie') ||
+        //     Str::of($text)->contains('WALL TIE')
+        // ){
+        //     $search = 'Wall Tie';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Damp') ||
-            Str::of($text)->contains('damp') ||
-            Str::of($text)->contains('DAMP')
-        ){
-            $search = 'Damp';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Asbestos') ||
+        //     Str::of($text)->contains('asbestos') ||
+        //     Str::of($text)->contains('ASBESTOS')
+        // ){
+        //     $search = 'Asbestos';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Dry Rot') ||
-            Str::of($text)->contains('Dry rot') ||
-            Str::of($text)->contains('dry rot') ||
-            Str::of($text)->contains('DRY ROT')
-        ){
-            $search = 'Dry Rot';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Damp') ||
+        //     Str::of($text)->contains('damp') ||
+        //     Str::of($text)->contains('DAMP')
+        // ){
+        //     $search = 'Damp';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Wet Rot') ||
-            Str::of($text)->contains('Wet rot') ||
-            Str::of($text)->contains('wet rot') ||
-            Str::of($text)->contains('WET ROT')
-        ){
-            $search = 'Wet Rot';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Dry Rot') ||
+        //     Str::of($text)->contains('Dry rot') ||
+        //     Str::of($text)->contains('dry rot') ||
+        //     Str::of($text)->contains('DRY ROT')
+        // ){
+        //     $search = 'Dry Rot';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Invasive Weeds') ||
-            Str::of($text)->contains('Invasive weeds') ||
-            Str::of($text)->contains('invasive weeds') ||
-            Str::of($text)->contains('INVASIVE WEEDS')
-        ){
-            $search = 'Invasive Weeds';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Wet Rot') ||
+        //     Str::of($text)->contains('Wet rot') ||
+        //     Str::of($text)->contains('wet rot') ||
+        //     Str::of($text)->contains('WET ROT')
+        // ){
+        //     $search = 'Wet Rot';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('Woodworm') ||
-            Str::of($text)->contains('woodworm') ||
-            Str::of($text)->contains('WOODWORM')
-        ){
-            $search = 'Woodworm';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Invasive Weeds') ||
+        //     Str::of($text)->contains('Invasive weeds') ||
+        //     Str::of($text)->contains('invasive weeds') ||
+        //     Str::of($text)->contains('INVASIVE WEEDS')
+        // ){
+        //     $search = 'Invasive Weeds';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
-        }elseif(
-            Str::of($text)->contains('subject to structural') ||
-            Str::of($text)->contains('Subject to structural') ||
-            Str::of($text)->contains('SUBJECT TO STRUCTURAL')
-        ){
-            $search = 'subject to structural';
-            $relevant = true;
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('Woodworm') ||
+        //     Str::of($text)->contains('woodworm') ||
+        //     Str::of($text)->contains('WOODWORM')
+        // ){
+        //     $search = 'Woodworm';
+        //     $relevant = true;
 
-            yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
+        // }elseif(
+        //     Str::of($text)->contains('subject to structural') ||
+        //     Str::of($text)->contains('Subject to structural') ||
+        //     Str::of($text)->contains('SUBJECT TO STRUCTURAL')
+        // ){
+        //     $search = 'subject to structural';
+        //     $relevant = true;
+
+        //     yield $this->item($this->compactListing($response, $search, $relevant, $text));
         }elseif(
             Str::of($text)->contains('cash buyers') ||
             Str::of($text)->contains('Cash Buyers') ||
